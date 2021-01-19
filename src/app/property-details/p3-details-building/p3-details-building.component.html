@@ -1,0 +1,100 @@
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h5>Property Details</h5>
+                        </div><hr>
+                        <form [formGroup]='buildingForm' (ngSubmit)="buildingData(buildingForm)">
+                            <div class="form-group">
+                              <label for="email">Type of site *</label>
+                              <select class="form-control ward" formControlName='site_type' id="e_name"  required>
+                                <option value="">Select Type of Site</option>
+                                <option selected="selected">Plot with Building</option>
+                              </select>   
+                              <span *ngIf="buildingForm.get('site_type').touched && buildingForm.get('site_type').hasError('required')">Site Type is required</span>
+                         
+                            </div>
+                            <div class="form-group">
+                                <label for="survey_id"> Survey ID </label>
+                                <input type="text" class="form-control ward"  formControlName="SurveyID" [disabled]=true required>
+                              </div>
+                            <div class="form-group">
+                              <label for="gis_id"> GIS Id *</label>
+                              <input type="text" class="form-control ward"  formControlName="gis_id" placeholder="Enter Valid GisId" required>
+                              <span *ngIf="buildingForm.get('gis_id').touched && buildingForm.get('gis_id').hasError('required')">Gis ID is required</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pid_no"> UPOR PID No *</label>
+                                <input type="text" class="form-control ward"  formControlName="pid_no" placeholder="Enter UPOR PID No" required>
+                                <span *ngIf="buildingForm.get('pid_no').touched && buildingForm.get('pid_no').hasError('required')">UPOR PID No is required</span>
+  
+                            </div>
+                            <div class="form-group">
+                                <label for="shape">Shape of Site *</label>
+                                <select class="form-control ward" formControlName='shape' id="e_name" required>
+                                  <option value="">Select Shape of Site</option>
+                                  <option >Regular Shaped</option>
+                                  <option>Odd Shaped</option>
+                                </select>
+                                <span *ngIf="buildingForm.get('shape').touched && buildingForm.get('shape').hasError('required')">Shape is required</span>
+                            
+                              </div>
+                            <div class="form-group ">
+                                <label class="form-control ward"><b>Area of Property </b></label><br>
+                            </div>
+                            <div class='row family'>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="length"> length(in ft) *</label>
+                                        <input type="text" class="form-control ward" formControlName="length" placeholder="Enter Length( in ft)" required>
+                                        <span *ngIf="buildingForm.get('length').touched && buildingForm.get('length').hasError('required')">Length is required</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="pwd"> Breadth(in ft) *</label>
+                                        <input type="text" class="form-control ward" formControlName="breadth" placeholder="Enter Breadth( in ft)" required>
+                                        <span *ngIf="buildingForm.get('breadth').touched && buildingForm.get('breadth').hasError('required')">Breadth is required</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='row family'>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="area_sqft"> Area(in Sqft) *</label>
+                                        <input type="text" class="form-control ward" formControlName="area_sqft" placeholder="Enter Area( in Sqft)" required>
+                                        <span *ngIf="buildingForm.get('area_sqft').touched && buildingForm.get('area_sqft').hasError('required')">Area is required</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="area_cent"> Area(in Cents) *</label>
+                                        <input type="text" class="form-control ward" formControlName="area_cent" placeholder="Enter Area( in Cents)" required>
+                                        <span *ngIf="buildingForm.get('area_cent').touched && buildingForm.get('area_cent').hasError('required')">Cents is required</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                            <button type="submit" [disabled]="!buildingForm.valid" class="btn btn-outline-primary btn-block btn-lg">Proceed Next</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>

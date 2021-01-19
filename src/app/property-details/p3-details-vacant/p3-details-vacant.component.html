@@ -1,0 +1,115 @@
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h5>Property Details</h5>
+                        </div><hr>
+                        <form [formGroup]='vacantForm' (ngSubmit)="vacantData(vacantForm)">
+                            <div class="form-group">
+                              <label for="site_type">Type of site *</label>
+                              <!-- onChange="window.location.href=this.value" -->
+                              <select class="form-control ward" formControlName='site_type' id="e_name">
+                                <option value="" >Select Type of Site</option>
+                                <option>Vacant</option>
+                              </select>  
+                              <span *ngIf="vacantForm.get('site_type').touched && vacantForm.get('site_type').hasError('required')">Site Type is required</span>
+                         
+                            </div>
+                            <div class="form-group">
+                              <label for="gis_id"> GIS Id *</label>
+                              <input type="text" class="form-control ward"  formControlName="gis_id" placeholder="Enter Valid GisId" id="e_name" required >
+                              <span *ngIf="vacantForm.get('gis_id').touched && vacantForm.get('gis_id').hasError('required')">Gis id is required</span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="survey_no"> Survey number *</label>
+                                <input type="text" class="form-control ward"  formControlName="survey_no" placeholder="Enter Survey No" required>
+                                <span *ngIf="vacantForm.get('survey_no').touched && vacantForm.get('survey_no').hasError('required')">Survey No is required</span>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="site_shape">Shape of Site *</label>
+                                <select class="form-control ward" formControlName='site_shape' id="e_name" required>
+                                  <option value="">Select Shape of Site</option>
+                                  <option>Regular Shaped</option>
+                                  <option>Odd Shaped</option>
+                                </select>                            
+                                <span *ngIf="vacantForm.get('site_shape').touched && vacantForm.get('site_shape').hasError('required')">Shape is required</span>
+ 
+                            </div>
+                            <div class="form-group ">
+                                <label class="form-control ward"><b>Area of Plot *</b></label><br>
+                            </div>
+                            <div class='row family'>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="length"> length(in ft) *</label>
+                                        <input type="text" class="form-control ward" name="mobile" formControlName="length" placeholder="Enter Length( in ft)" required>
+                                        <span *ngIf="vacantForm.get('length').touched && vacantForm.get('length').hasError('required')">Length is required</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="breadth"> Breadth(in ft) *</label>
+                                        <input type="text" class="form-control ward"  formControlName="breadth" placeholder="Enter Breadth( in ft)" required>
+                                        <span *ngIf="vacantForm.get('breadth').touched && vacantForm.get('breadth').hasError('required')">Breadth is required</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class='row family'>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="area_sqft"> Area(in Sqft) *</label>
+                                        <input type="text" class="form-control ward"  formControlName="area_sqft" placeholder="Enter Area( in Sqft)" required>
+                                        <span *ngIf="vacantForm.get('area_sqft').touched && vacantForm.get('area_sqft').hasError('required')">Area is required</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6" >
+                                    <div class="form-group">
+                                        <label for="area_cent"> Area(in Cents) *</label>
+                                        <input type="text" class="form-control ward"  formControlName="area_cent" placeholder="Enter Area( in Cents)" required>
+                                        <span *ngIf="vacantForm.get('area_cent').touched && vacantForm.get('area_cent').hasError('required')">Cents is required</span>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
+                                <label class="form-control ward"><b>Owner's Details(If Known)</b></label><br>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name"> Owner Name</label>
+                                <input type="text" class="form-control ward"  formControlName="name" placeholder="Enter Owner Name" required>
+                                <span *ngIf="vacantForm.get('name').touched && vacantForm.get('name').hasError('required')">Name is required</span>
+  
+                            </div>
+
+                              <div class="form-group">
+                                <label for="mobile"> Owner Mobile No</label>
+                                <input type="text" class="form-control ward"  formControlName="mobile" placeholder="Enter Mobile No" required>
+                                <span *ngIf="vacantForm.get('mobile').touched && vacantForm.get('mobile').hasError('required')">Mobile No is required</span>
+ 
+                            </div>
+                            <button type="submit" [disabled]="!vacantForm.valid"  class="btn btn-outline-primary btn-block btn-lg">Save & Submit</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>

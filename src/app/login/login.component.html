@@ -1,0 +1,33 @@
+      <ngx-spinner *ngIf="true" color="#71b668">
+         
+      </ngx-spinner>
+      <section class="login-main-wrapper">
+        <div class="container-fluid pl-0 pr-0">
+           <div class="row no-gutters"> 
+              
+              <div class="col-md-12 p-5 bg-white full-height" >
+                 <div class="login-main-left">
+                    <div class="text-center mb-5 login-main-left-header pt-4">
+                       <img class="logo_img" src="../../assets/img/property_logo.jpg">
+                       <h5 class="mt-3 mb-3">Welcome to Property Survey</h5>
+                             <h3>Sign In</h3>
+                    </div>
+                    <p class="error" *ngIf="showError">{{ errorMsg }}</p>
+                    <form [formGroup]='signinForm' (ngSubmit)="signData(signinForm)">
+                       <div class="form-group">
+                          <label>Mobile No</label>
+                          <input type="text" class="form-control" name="mobile" formControlName="mobile" placeholder="Enter Mobile Number" required>
+                       </div>
+                       <div class="mt-4">
+                          <button type="submit" [disabled]="!signinForm.valid" class="btn btn-outline-primary btn-block btn-lg">Sign In</button>
+                     </div>
+                    </form>
+                    <!-- <div class="text-center mt-5">
+                       <p class="light-gray">Already have an Account? <a href="./SignIn">Sign In</a></p>
+                    </div> -->
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+    

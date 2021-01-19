@@ -1,0 +1,52 @@
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h6>Property Area Details</h6>
+                        </div><hr>
+                        <form [formGroup]="areaForm" (ngSubmit)="areaData(areaForm)">
+
+                          <div class="form-group">
+                            <label for="ward">Revenue Ward Name/No *</label>
+                            <select class="form-control ward" formControlName='ward' id="ward" >
+                            
+                              <!-- <option selected="selected">Select Ward Name</option> -->
+                            <option value="">Select Ward Name</option>
+                              <option *ngFor='let item of UserData' value="{{ item.id }}">
+                                {{item.revWardName}}
+                              </option>   
+                            </select> 
+                            <span *ngIf="areaForm.get('ward').touched && areaForm.get('ward').hasError('required')">Ward name is required</span>
+                          </div>
+                          <!-- <small *ngIf="areaForm.get('ward').hasError('required')">Ward name is required</small>                   -->
+ 
+                          <div class="form-group">
+                            <label for="block">Revenue Block Name/No *</label>
+                            <select class="form-control ward" formControlName='block' id="ward">
+                              <!-- <option selected="selected">Select Block Name</option> -->
+                              <option value="">Select Block No</option>
+                              <option *ngFor='let item of UserData1' value="{{ item.id }}">
+                                {{item.blockNo}}
+                              </option>   
+                            </select>
+                            <span *ngIf="areaForm.get('block').touched && areaForm.get('block').hasError('required')">Block number is required</span>
+
+                          </div>    
+                          <button type="submit" [disabled]="!areaForm.valid" class="btn btn-outline-primary btn-block btn-lg" >Submit</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>
+

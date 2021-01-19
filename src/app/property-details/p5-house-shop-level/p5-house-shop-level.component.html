@@ -1,0 +1,137 @@
+
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h6>House Level/Shop Level</h6>
+                        </div><hr>
+                        <form [formGroup]="HouseShopForm"  (ngSubmit)="HouseShopData(HouseShopForm)">
+                            <div class="form-group">
+                                <label for="pro_id"> Property Id</label>
+                                <input type="text" class="form-control ward" formControlName="pro_id"  required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">No of dwelling Units *</label>
+                                <input type="text" class="form-control ward"  formControlName="dwelling" placeholder="Dwelling Units No" required>
+                                <span *ngIf="HouseShopForm.get('dwelling').touched && HouseShopForm.get('dwelling').hasError('required')">Dwelling Units required</span>
+
+                              </div>
+                            <div class="form-group">
+                                <label for="shops">No of Shops *</label>
+                                <input type="text" class="form-control ward" formControlName="shops" placeholder="Shop No"  required>
+                                <span *ngIf="HouseShopForm.get('shops').touched && HouseShopForm.get('shops').hasError('required')">No of Shops required</span>
+
+                              </div>
+                            <div class="form-group">
+                              <label for="pro_details">Property Details(for correction only) *</label>
+                              <select class="form-control ward" formControlName='pro_details' id="type" required>
+                                <option value="">Select The property count</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                               
+                              </select>   
+                              <span *ngIf="HouseShopForm.get('pro_details').touched && HouseShopForm.get('pro_details').hasError('required')">Property Count required</span>
+                         
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Type *</label>
+                                <select class="form-control ward" formControlName='type' id="type" required>
+                                  <option value="">Enter Building Type</option>
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                 
+                                </select>
+                                <span *ngIf="HouseShopForm.get('type').touched && HouseShopForm.get('type').hasError('required')">Building Type required</span>
+                            
+                              </div>
+                              <div class="form-group">
+                                <label for="shop_house_no">Shop/House No or Name *</label>
+                                <input type="text" class="form-control ward"  formControlName="shop_house_no" placeholder="Enter Shop No or Name"  required>
+                                <span *ngIf="HouseShopForm.get('shop_house_no').touched && HouseShopForm.get('shop_house_no').hasError('required')">Shop/House No is required</span>
+
+                              </div>
+
+                            <div class="form-group">
+                                <label for="ownership">Ownership *</label>
+                                <select class="form-control ward" formControlName='ownership' id="type" >
+                                  <option value="">Ownership</option>
+                                  <option selected="selected">Self Occupied</option>
+                                  <option>Tenanted</option>
+                                 
+                                </select>  
+                                <span *ngIf="HouseShopForm.get('ownership').touched && HouseShopForm.get('ownership').hasError('required')">Ownership is required</span>
+                          
+                              </div>
+                              <div class="form-group">
+                                <label for="door_no">Door No *</label>
+                                <input type="text" class="form-control ward"  formControlName="door_no" placeholder="Enter Door No"  required>
+                                <span *ngIf="HouseShopForm.get('door_no').touched && HouseShopForm.get('door_no').hasError('required')">Door No required</span>
+
+                              </div>
+
+                            <div class="form-group">
+                                <label for="foill_no">SAS Challan/Counter Foill No *</label>
+                                <input type="text" class="form-control ward"  formControlName="foill_no" placeholder="SAS No"  required>
+                                <span *ngIf="HouseShopForm.get('foill_no').touched && HouseShopForm.get('foill_no').hasError('required')">Challan/Counter is required</span>
+
+                              </div>
+
+                            <div class="form-group">
+                                <label for="rr_no">MESCOM Connection/RR No *</label>
+                                <input type="text" class="form-control ward"  formControlName="rr_no" placeholder="MESCOM/RR No"  required>
+                                <span *ngIf="HouseShopForm.get('rr_no').touched && HouseShopForm.get('rr_no').hasError('required')">MESCOM/RR is required</span>
+
+                              </div>
+
+                            <div class="form-group">
+                                <label for="water_conn">Water Connection No *</label>
+                                <input type="text" class="form-control ward"  formControlName="water_conn" placeholder="Water Connection No"  required>
+                                <span *ngIf="HouseShopForm.get('water_conn').touched && HouseShopForm.get('water_conn').hasError('required')">Water Connection No required</span>
+
+                              </div>
+
+                            <div class="form-group">
+                                <label for="floor_type">Type of Floor *</label>
+                                <select class="form-control ward" formControlName='type' id="floor_type" required>
+                                  <option value="">Select option</option>
+                                  <option>Granite</option>
+                                  <option>Concrete</option>
+                                  <option>Red Oxide</option>
+                                  <option>Ceramic</option>
+                                  <option>Marble</option>
+                                  <option>Vetrified Tiles</option>
+                                </select>   
+                                <span *ngIf="HouseShopForm.get('floor_type').touched && HouseShopForm.get('floor_type').hasError('required')">Floor Type is required</span>
+                         
+                              </div>
+                            
+                            <div class="form-group">
+                                <label for="wood_type">Type of Wood *</label>
+                                <input type="text" class="form-control ward"  formControlName="wood_type" placeholder="Enter Type of Wood"  required>
+                                <span *ngIf="HouseShopForm.get('wood_type').touched && HouseShopForm.get('wood_type').hasError('required')">Wood Type is required</span>
+
+                              </div>
+                            <button type="submit" [disabled]="!HouseShopForm.valid" class="btn btn-outline-primary btn-block btn-lg" >Proceed Next</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,150 @@
+
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h6>Type of Property</h6>
+                        </div><hr>
+                        <form [formGroup]="proTypeForm" (ngSubmit)="proTypeData(proTypeForm)">
+                            <div class="form-group">
+                                <label for="pro_id"> Property Id</label>
+                                <input type="text" class="form-control ward"  formControlName="pro_id"  required>
+                              </div>
+                            <div class="form-group">
+                              <label for="pro_type">Property Type *</label>
+                              <select class="form-control ward" formControlName='pro_type' id="block" required>
+                                <option value="">Select One</option>
+                                <option>Residential/Commercial</option>
+                                <option>Apartment/Mall</option>
+                                <option>Industrial</option>
+                                <option>Institutional</option>
+                                <option>Charritable</option>
+                                <option>Public Property or Goverment Property</option>
+                              </select>
+                              <span *ngIf="proTypeForm.get('pro_type').touched && proTypeForm.get('pro_type').hasError('required')">Property Type is required</span>
+
+                            </div>
+
+                            <div class="form-group">
+                              <label for="type">Type</label>
+                              <select class="form-control ward" formControlName='type' id="block" required>
+                                <option value="">Select One</option>
+                                <option>Independent House</option>>
+                                <option>Shopping Complex</option>
+                              </select>
+                              <span *ngIf="proTypeForm.get('type').touched && proTypeForm.get('type').hasError('required')">Type is required</span>
+
+                            </div>
+
+                            <div class="form-group">
+                              <label for="owner_name">Name of Owner</label>
+                              <input type="text" class="form-control ward"  formControlName='owner_name' placeholder="Enter Name of Owner"  required>
+                              <span *ngIf="proTypeForm.get('owner_name').touched && proTypeForm.get('owner_name').hasError('required')">Owner name is required</span>
+
+                            </div>
+
+                            <div class="form-group">
+                              <label for="owner_mob">Owner Mobile No</label>
+                              <input type="text" class="form-control ward" formControlName='owner_mob' placeholder="Enter Owner Mobile No"  required>
+                              <span *ngIf="proTypeForm.get('owner_mob').touched && proTypeForm.get('owner_mob').hasError('required')">Owner's number required</span>
+
+                            </div>
+
+                            <div class="form-group">
+                              <label for="adhar">Aadhar No</label>
+                              <input type="text" class="form-control ward" formControlName="adhar" placeholder="Enter Aadhar No"  required>
+                              <span *ngIf="proTypeForm.get('adhar').touched && proTypeForm.get('adhar').hasError('required')">Adhar no is required</span>
+
+                            </div>
+                            
+                            <div class='row family'>
+                              <div class="col-sm-6" >
+                                  <div class="form-group">
+                                      <label for="roof_type">Type of Roof</label>
+                                      <select class="form-control ward" formControlName='roof_type' id="block" required>
+                                        <option value="">Select option</option>
+                                        <option>RCC</option>
+                                        <option>Tiles</option>
+                                        <option>Sheet</option>
+                                      </select> 
+                                      <span *ngIf="proTypeForm.get('roof_type').touched && proTypeForm.get('roof_type').hasError('required')">Roof Type is required</span>
+                                
+                                     </div>
+                              </div>
+                              <div class="col-sm-6" >
+                                  <div class="form-group">
+                                      <label for="total_floor">Total No of Floors</label>
+                                      <select class="form-control ward" formControlName='total_floor' id="block" required>
+                                        <option value="">Select option</option>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                      </select>  
+                                      <span *ngIf="proTypeForm.get('total_floor').touched && proTypeForm.get('total_floor').hasError('required')">No of Floors required</span>
+                                  
+                                    </div>
+                              </div>
+                            </div>
+                            <div class="form-group ">
+                              <label class="form-control ward"><b>Area of Building</b></label><br>
+                          </div>
+
+                          <div class='row family'>
+                            <div class="col-sm-6" >
+                                <div class="form-group">
+                                    <label for="length"> length(in ft)</label>
+                                    <input type="text" class="form-control ward"  formControlName="length" placeholder="Enter Length( in ft)" required>
+                                    <span *ngIf="proTypeForm.get('length').touched && proTypeForm.get('length').hasError('required')">Length is required</span>
+                                  </div>
+                            </div>
+                            <div class="col-sm-6" >
+                                <div class="form-group">
+                                    <label for="breadth"> Breadth(in ft)</label>
+                                    <input type="text" class="form-control ward" formControlName="breadth" placeholder="Enter Breadth( in ft)" required>
+                                    <span *ngIf="proTypeForm.get('breadth').touched && proTypeForm.get('breadth').hasError('required')">Breadth is required</span>
+                                  </div>
+                            </div>
+                        </div>
+
+                        <div class='row family'>
+                            <div class="col-sm-6" >
+                                <div class="form-group">
+                                    <label for="area1"> Area(in Sqft)</label>
+                                    <input type="text" class="form-control ward" formControlName="area1" placeholder="Enter Area( in Sqft)" required>
+                                    <span *ngIf="proTypeForm.get('area1').touched && proTypeForm.get('area1').hasError('required')">Area is required</span>
+
+                                  </div>
+                            </div>
+                            <div class="col-sm-6" >
+                                <div class="form-group">
+                                    <label for="area2"> Area(in Cents)</label>
+                                    <input type="text" class="form-control ward" formControlName="area2" placeholder="Enter Area( in Cents)" required>
+                                    <span *ngIf="proTypeForm.get('area2').touched && proTypeForm.get('area2').hasError('required')">Cents  required</span>
+
+                                  </div>
+                            </div>
+                        </div>
+                            <button type="submit" [disabled]="!proTypeForm.valid"class="btn btn-outline-primary btn-block btn-lg" >Save & Proceed</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>
+

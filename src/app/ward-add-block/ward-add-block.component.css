@@ -1,0 +1,14 @@
+.ward{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+}
+.award{
+    color: blue;
+    font-weight: 600;
+}
+.pward{
+    color: red;
+    font-weight: 600;
+}

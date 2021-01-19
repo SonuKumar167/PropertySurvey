@@ -1,0 +1,101 @@
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h5>Ward And Block Details</h5>
+                        </div><hr>
+                        <form [formGroup]='addWardBlock' (ngSubmit)="AddWardBlock(addWardBlock)">
+                            <div class="form-group">
+                              <label for="email">Name of District:</label>
+
+                              <select class="form-control ward" formControlName='district' id="e_name" required>
+                                <option>Choose District</option>
+                                <option>Delhi</option>
+                                <option>Noida</option>
+                              </select>                            
+                            </div>
+                            <div class="form-group">
+                              <label for="pwd"> Name of City</label>
+                              <select class="form-control ward" formControlName='city' id="e_name" required>
+                                <option>Choose City</option>
+                                <option>Delhi</option>
+                                <option>Noida</option>
+                              </select>                             
+                            </div>
+                              <div class="form-group" *ngIf="AddWardSelect">
+                                <label for="pwd"> Name of Ward</label>
+                                <select class="form-control ward" formControlName='ward' id="e_name" required>
+                                <option>Choose Ward</option>
+                                <option>Delhi</option>
+                                <option>Noida</option>
+                              </select> 
+                            </div>
+                            <div class="form-group ">
+
+                            <a type="button" (click)="ShowWard('Add Ward')" *ngIf="AddWard" class="award">+ Add New Ward</a><br>
+                            <a type="button" (click)="ShowWard('Exist Ward')"  *ngIf="ExistWard" class="award">+ Select From Existing Ward</a>
+
+                            </div>
+                            <div class="form-group" *ngIf="AddWardText">
+                                <label for="pwd"> New Ward Name</label>
+                                <input class="form-control ward"  type="text" formControlName='newward' placeholder="Enter New Ward Name">
+                            </div>
+
+                            <div class="form-group ">
+                                <p class="pward"> Revenue Ward Boundary</p><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> North*</label>
+                                <input class="form-control ward"  type="text" formControlName='ward_north' placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> South*</label>
+                                <input class="form-control ward"  type="text" formControlName='ward_south' placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> East*</label>
+                                <input class="form-control ward"  type="text" formControlName='ward_east' placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> West*</label>
+                                <input class="form-control ward"  type="text" formControlName='ward_west' placeholder="" required>
+                            </div>
+
+                            <div class="form-group ">
+                                <p class="pward"> Revenue Block Boundary</p><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> North*</label>
+                                <input class="form-control ward"  type="text" formControlName='block_north' placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> South*</label>
+                                <input class="form-control ward"  type="text" formControlName='block_south' placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> East*</label>
+                                <input class="form-control ward"  type="text" formControlName='block_east' placeholder="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> West*</label>
+                                <input class="form-control ward"  type="text" formControlName='block_west' placeholder="" required>
+                            </div>
+                            
+
+                            <button type="submit" [disabled]="!addWardBlock.valid" class="btn btn-outline-primary btn-block btn-lg">Submit</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>

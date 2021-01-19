@@ -1,0 +1,43 @@
+
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h6>Property Details</h6>
+                        </div><hr>
+                        <form [formGroup]="detailForm"  (ngSubmit)="detailData(detailForm)">
+                          <div class="form-group">
+                            <label for="stype">Choose GisId *</label>
+                            <select class="form-control ward" formControlName='GisId'>
+                              <option value=""  >Choose GisId</option>
+                              <option *ngFor="let gis of gisID">{{ gis.gisId }}</option>
+                            </select> 
+                            <span *ngIf="detailForm.get('GisId').touched && detailForm.get('GisId').hasError('required')">GisId is required</span>
+                          </div>
+                            <div class="form-group">
+                              <label for="stype">Type of site *</label>
+                              <select class="form-control ward" formControlName='stype' id="stype">
+                                <option value=""  >Choose site Type</option>
+                                <option>Vacant</option>
+                                <option>Plot with Building</option>
+                              </select> 
+                              <span *ngIf="detailForm.get('stype').touched && detailForm.get('stype').hasError('required')">Site Type is required</span>
+                           
+                            </div>
+                            <button type="submit"  [disabled]="!detailForm.valid" class="btn btn-outline-primary btn-block btn-lg" >Proceed Next</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>

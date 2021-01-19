@@ -1,0 +1,39 @@
+
+<app-header></app-header>
+<div id="wrapper">
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <div class="top-category section-padding mb-4">
+               <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title">            
+                            <h6>Property  Picture Details</h6>
+                        </div><hr>
+                        <form [formGroup]="pictureForm"  (ngSubmit)="pictureData(pictureForm)">
+                            <div class="form-group">
+                              <label for="ward">Property Id</label>
+                              <input type="text" class="form-control ward"  formControlName="pro_id"  required>
+                         
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd"> Latitude</label>
+                                <input type="text" class="form-control ward"  formControlName="lat"  required>
+                              </div>
+                              <div class="form-group">
+                                <label for="pwd">Longitude</label>
+                                <input type="text" class="form-control ward"  formControlName="long"  required>
+                              </div>
+                                                         
+                            <button type="submit" class="btn btn-outline-primary btn-block btn-lg" >Save Picture</button>
+                          </form>
+                        
+                    </div>
+              </div>
+             
+             </div>
+        </div>
+    </div>
+
+</div>
